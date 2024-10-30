@@ -1,0 +1,40 @@
+# Title
+
+## Repository
+<Link to your project's public GitHub respositor>
+
+## Description
+Guess the word game. A game where the player has to guess the letter of the word. Like hang man. A fun game fro game computer players.
+
+## Features
+- Feature 1
+	- Making a list of the words or a CVS file, so they don't see the word in the main code.
+- Feature 2
+	- Using boolean if the letter they guess is true or false.
+- Feature N 
+	- If they win a 'You Win!' screen will pop up. If they loose a 'You loose' screen pops up. With a next button to try again or quit
+
+## Challenges
+- How to have a button in a certian area to quit or try again
+- How to organized it
+
+## Outcomes
+Ideal Outcome:
+- For the user input to guess the word. If they win or loose they get a pop up screen saying how they did. 
+
+Minimal Viable Outcome:
+- List, boolean, cvs, screen
+
+## Milestones
+
+- Week 1
+  1. Idea/Proposal type out correctly
+  2. Type the main code to get started
+
+- Week 2
+  1. Write CVS/list of word and add it to the main code.
+  2. If they win/loose screen pop up.
+
+- Week N (Final)
+  1. Finish up any small details
+  2. Turn it in!
