@@ -16,39 +16,31 @@ def lose(screen):
 def display(result):
     pygame.init()
     pygame.display.set_caption("Game Result")
-    resolution = (1920, 1080)
-    screen = pygame.display.set_mode(resolution)
-    font = pygame.font.Font(None, 74)
+    resloution = (1920, 1080)
+    screen = pygame.display.set_mode(resloution)
+    if result == "win":
+        win_image = pygame.image.load('YouWin.png')
+        screen.blit(win_image, (0, 0))
+    elif result == "lose":
+        lose_image = pygame.image.load('YouLose.jpg')
+        screen.blit(lose_image, (0, 0))
+    pygame.display.flip()
     running = True
     while running:
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 running = False
-        black = pygame.Color(0, 0, 0)
-        screen.fill(black)
-        if result == "win":
-            text = font.render("You Win!", True, 
-                    pygame.Color(255, 255, 255))
-            # Display win message
-            pass
-        else:
-            text = font.render("You Lose!", True, pygame.Color(255, 255, 255))
-        screen.blit(text, (200, 250))
-            # Display lose message
-        pass
-        pygame.display.flip()
     pygame.quit()
-
+   
     
 def get_character_names():
     with open('character_names.txt', 'r') as character_names:
         file_names = list(character_names)
     return file_names
-#needs code for not having an extra dash/ space at the end of the guessing word in terminal.
+
 def case():
     chosen_name = chosen_name.lower()
     guess = guess.lower()
-    #if guess not in chosen_name:
 
 def main():
     pygame.init()
@@ -57,7 +49,6 @@ def main():
     chosen_name = random.choice(character_names).strip().lower()
     first_char = chosen_name[0]
     print("Guess a letter")
-    #if guess.lower() not in chosen_name.lower():
     guesses = ''
     turns = len(chosen_name) + 1
     while turns > 0:
@@ -77,6 +68,7 @@ def main():
             print("You win")
             print("The Character is: ", chosen_name)
             winner(screen)
+            display("win")
             break
         print()
         guess = input("Guess a letter:").lower()
