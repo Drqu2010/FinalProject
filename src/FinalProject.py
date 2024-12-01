@@ -1,11 +1,24 @@
 import random
 import pygame
+from PIL import Image
+
+def winner(screen):
+    image = Image.open('YouWin.png')
+    new_image = image.resize((1920, 1080))
+    new_image.show()
+
+def lose(screen):
+    image = Image.open('YouLose.jpg')
+    new_image = image.resize((1920, 1080))
+    new_image.show()
+
 
 def display(result):
     pygame.init()
     pygame.display.set_caption("Game Result")
-    resolution = (800, 600)
+    resolution = (1920, 1080)
     screen = pygame.display.set_mode(resolution)
+    font = pygame.font.Font(None, 74)
     running = True
     while running:
         for event in pygame.event.get():
@@ -14,11 +27,15 @@ def display(result):
         black = pygame.Color(0, 0, 0)
         screen.fill(black)
         if result == "win":
+            text = font.render("You Win!", True, 
+                    pygame.Color(255, 255, 255))
             # Display win message
             pass
         else:
+            text = font.render("You Lose!", True, pygame.Color(255, 255, 255))
+        screen.blit(text, (200, 250))
             # Display lose message
-            pass
+        pass
         pygame.display.flip()
     pygame.quit()
 
@@ -34,6 +51,8 @@ def case():
     #if guess not in chosen_name:
 
 def main():
+    pygame.init()
+    screen = pygame.display.set_mode((800, 600))
     character_names = get_character_names()
     chosen_name = random.choice(character_names).strip().lower()
     first_char = chosen_name[0]
@@ -57,7 +76,7 @@ def main():
         if failed == 0:
             print("You win")
             print("The Character is: ", chosen_name)
-            display("win")
+            winner(screen)
             break
         print()
         guess = input("Guess a letter:").lower()
@@ -67,7 +86,7 @@ def main():
             print('Wrong')
             print("You have", + turns, 'more guesses')
             if turns == 0:
-                print("You Loose")
+                lose(screen)
                 print("The correct answer was:", chosen_name)
                 display("lose")
         
