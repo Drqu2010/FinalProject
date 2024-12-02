@@ -1,25 +1,25 @@
 import random
 import pygame
 from PIL import Image
+import sys
 
 def winner(screen):
-    image = Image.open('YouWin.png')
-    new_image = image.resize((1920, 1080))
-    new_image.show()
+    image = Image.open('YouWin.jpg')
+    new_image = image.resize((600, 600))
+    image.show()
 
 def lose(screen):
     image = Image.open('YouLose.jpg')
-    new_image = image.resize((1920, 1080))
+    new_image = image.resize((600, 600))
     new_image.show()
-
 
 def display(result):
     pygame.init()
     pygame.display.set_caption("Game Result")
-    resloution = (1920, 1080)
+    resloution = (600, 600)
     screen = pygame.display.set_mode(resloution)
     if result == "win":
-        win_image = pygame.image.load('YouWin.png')
+        win_image = pygame.image.load('YouWin.jpg')
         screen.blit(win_image, (0, 0))
     elif result == "lose":
         lose_image = pygame.image.load('YouLose.jpg')
@@ -31,6 +31,7 @@ def display(result):
             if event.type == pygame.QUIT:
                 running = False
     pygame.quit()
+    sys.exit()
    
     
 def get_character_names():
@@ -44,7 +45,7 @@ def case():
 
 def main():
     pygame.init()
-    screen = pygame.display.set_mode((800, 600))
+    #screen = pygame.display.set_mode((800, 600))
     character_names = get_character_names()
     chosen_name = random.choice(character_names).strip().lower()
     first_char = chosen_name[0]
@@ -67,7 +68,7 @@ def main():
         if failed == 0:
             print("You win")
             print("The Character is: ", chosen_name)
-            winner(screen)
+           # winner(screen)
             display("win")
             break
         print()
@@ -78,7 +79,7 @@ def main():
             print('Wrong')
             print("You have", + turns, 'more guesses')
             if turns == 0:
-                lose(screen)
+               # lose(screen)
                 print("The correct answer was:", chosen_name)
                 display("lose")
         
