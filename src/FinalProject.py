@@ -6,7 +6,7 @@ import sys
 def winner(screen):
     image = Image.open('YouWin.jpg')
     new_image = image.resize((600, 600))
-    image.show()
+    new_image.show()
 
 def lose(screen):
     image = Image.open('YouLose.jpg')
