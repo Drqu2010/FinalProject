@@ -1,9 +1,9 @@
-**##Guess the Disney Character**
+# **Guess the Disney Character**
 
-**##Demo Video**
+# **Demo Video**
 video: <url>
 
-**##GitHub Link**
+# **GitHub Link**
 repo: https://github.com/Drqu2010/FinalProject
 
 ## Description
